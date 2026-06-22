@@ -1,18 +1,3 @@
-stages:
-  - build
-  - verify
-
-build_backend:
-  stage: build
+test:
   script:
-    - echo "Building backend stage"
-
-build_frontend:
-  stage: build
-  script:
-    - echo "Building frontend stage"
-
-verify_deployment:
-  stage: verify
-  script:
-    - echo "DevSecOps deployment completed successfully"
+    - echo "DevSecOps Capstone Pipeline Successful"
