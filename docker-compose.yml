@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:16
+    container_name: db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: appsecret
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./app/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    build: ./app/backend
+    container_name: backend
+    restart: unless-stopped
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: appdb
+      DB_USER: appuser
+      DB_PASSWORD: appsecret
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+
+  frontend:
+    build: ./app/frontend
+    container_name: frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
+

@@ -1,0 +1,16 @@
+{
+  "name": "devsecops-backend",
+  "version": "1.0.0",
+  "description": "Tiny User Registry API - backend for the DevSecOps capstone lab",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.11.5",
+    "cors": "^2.8.5"
+  },
+  "license": "MIT"
+}

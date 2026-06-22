@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Registry</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="card">
+    <h1>User Registry</h1>
+    <p class="subtitle">Save a user, then see them appear in the list below.</p>
+
+    <form id="user-form" autocomplete="off">
+      <div class="row">
+        <input type="text"  id="name"  placeholder="Full name"     required />
+        <input type="email" id="email" placeholder="Email address" required />
+      </div>
+      <button type="submit">Save user</button>
+      <span id="status" class="status"></span>
+    </form>
+
+    <h2>Saved users</h2>
+    <table id="users-table">
+      <thead>
+        <tr><th>#</th><th>Name</th><th>Email</th><th>Created</th></tr>
+      </thead>
+      <tbody id="users-body">
+        <tr><td colspan="4" class="empty">Loading…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
